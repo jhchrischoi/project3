@@ -2,7 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Raleway', sans-serif;
     
   }
   
@@ -121,3 +121,17 @@ body {
   letter-spacing: 0em;
   text-align: center;
 } */
+
+#detail-layout{
+  display:flex;
+
+}
+
+#container{
+  width:125%;
+}
+
+#entry{
+  display:flex;
+  
+}

@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="navbar">
@@ -20,22 +20,24 @@
           <li><a href="/" id="brand-logo">&nbsp;&nbsp;<img src="{% static 'images/Logo.png' %}" alt="Image" class="logo-img-signup"></a></li>
         </ul>
         <ul class="right">
-          <li><a href="{% url 'about' %}" id="available-menu" style="font-size:20px;">About</a></li>
+          <li><a href="{% url 'about' %}" id="available-menu" style="font-size:20px;">ABOUT</a></li>
           {% if user.is_authenticated %}
-          <li><a href="{% url 'logout' %}" id="available-menu" style="font-size:20px;">Log Out</a></li>
+          <li><a href="{% url 'logout' %}" id="available-menu" style="font-size:20px;">LOG OUT</a></li>
           {% else %}
-          <li><a href="{% url 'signup' %}" id="available-menu" style="font-size:20px;">Sign Up</a></li>
-          <li><a href="{% url 'login' %}" id="available-menu" style="font-size:20px;">Log In</a></li>
+          <li><a href="{% url 'signup' %}" id="available-menu" style="font-size:20px;">SIGN UP</a></li>
+          <li><a href="{% url 'login' %}" id="available-menu" style="font-size:20px;">LOG IN</a></li>
           {% endif %}
         </ul>
       </div>
       {% if user.is_authenticated %}
       <div class="nav-content" style="background-color:#063F0C">
         <ul class="tabs tabs-transparent" id="bottom-tabs">
+          <li id="authenticated-menu"><a href="{% url 'progresses_create' %}" style="font-size:20px;">PROGRESS</a></li>
+          <li id="authenticated-menu"><a href="{% url 'recommendations_index' %}" style="font-size:20px;">RECOMMENDATION</a></li>
           <li id="authenticated-menu"><a href="{% url 'recommendations_create' %}" style="font-size:20px;">Add a Recommendation</a></li>
-          <li id="authenticated-menu"><a href="{% url 'recommendations_index' %}" style="font-size:20px;">View All Recommendations</a></li>
-          <li id="authenticated-menu"><a href="{% url 'progresses_create' %}" style="font-size:20px;">Add a Journal</a></li>
-          <li id="authenticated-menu"><a href="{% url 'index' %}" style="font-size:20px;">View All My Progresses</a></li>
+          <li id="authenticated-menu"><a href="{% url 'index' %}" style="font-size:20px;">JOURNAL</a></li>
+          
+          
           {% endif %}
         </ul>
       </div>
@@ -46,7 +48,7 @@
     {% endblock %}
   </main>
   <footer class="page-footer teal darken-4">
-    <div class="right teal darken-4">All Rights Reserved, &copy; 2023 PRSS &nbsp;</div>
+    <div class="right teal darken-4">All Rights Reserved, &copy; 2023 Jhchrischoi &nbsp;</div>
   </footer>
 </body>
 </html>

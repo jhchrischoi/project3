@@ -1,8 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Journal</h1>
-<div class="row">
+
+<h1 style="color:#063F0C">Journal Entry</h1>
+<div class="row" id="detail-layout">
+  <div class="col s6">
+    <div class="task-title" style="padding-bottom:25px;"><h3>Today's Tasks</h3></div>
+    <form action="{% url 'add_checklist' progress.id %}" method="POST">
+        {% csrf_token %}
+        <!-- Render the inputs -->
+        {{ checklist_form.as_p }}
+        <input type="submit" class="btn" value="ADD TASKS" style="background-color:#ffffff; color:#063F0C; border-radius:28px; margin-top:50px; margin-left:40%; margin-bottom:30px;">
+      </form>
+    <table class="striped">
+      <thead>
+        <tr>
+            <th>School</th>
+            <th>Chores</th>
+            <th>Rest</th></tr>
+      </thead>
+      <tbody>
+        {% for checklist in progress.checklist_set.all %}
+          <tr>
+            <td>{{checklist.school}}</td>
+            <td>{{checklist.chore}}</td>
+            <td>{{checklist.rest}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
 <div class="col s6">
   <div class="card">
     <div class="card-content">
@@ -25,34 +52,12 @@
       {% csrf_token %}
       <input type="file" name="photo-file">
       <br><br>
-      <button type="submit" class="btn">Upload Photo</button>
+      <button type="submit" class="btn" style="background-color:#ffffff; color:#063F0C; border-radius:28px; margin-top:50px; margin-left:40%">Upload Photo</button>
   </form>
 </div>
 
 {% comment %} 1:M {% endcomment %}
-<div class="col s6">
-    <form action="{% url 'add_checklist' progress.id %}" method="POST">
-        {% csrf_token %}
-        <!-- Render the inputs -->
-        {{ checklist_form.as_p }}
-        <input type="submit" class="btn" value="Add Checklist">
-      </form>
-    <table class="striped">
-      <thead>
-        <tr>
-            <th>School Work</th><th>1 House Chore</th><th>Rest</th></tr>
-      </thead>
-      <tbody>
-        {% for checklist in progress.checklist_set.all %}
-          <tr>
-            <td>{{checklist.school}}</td>
-            <td>{{checklist.chore}}</td>
-            <td>{{checklist.rest}}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
+
 </div>
 
 {% comment %} M:M {% endcomment %}
@@ -94,7 +99,7 @@
           <div class="card-action">
             <form action="{% url 'assoc_recommendation' progress.id recommendation.id %}" method="POST">
               {% csrf_token %}
-              <button type="submit" class="btn">Finished</button>
+              <button type="submit" class="btn" style="background-color:#ffffff; color:#063F0C; border-radius:28px; margin-top:50px; margin-left:40%">Finished</button>
             </form>
           </div>
         </div>
