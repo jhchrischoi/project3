@@ -8,38 +8,45 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Athlete Training Journal</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
+    <nav class="nav-extended">
+      <div class="nav-wrapper" id="top-nav">
         <ul>
-          <li><a href="/" class="left brand-logo">&nbsp;&nbsp;Athlete Training Journal</a></li>
+          <li><a href="/" id="brand-logo">&nbsp;&nbsp;<img src="{% static 'images/Logo.png' %}" alt="Image" class="logo-img-signup"></a></li>
         </ul>
         <ul class="right">
-          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'about' %}" id="available-menu">About</a></li>
           {% if user.is_authenticated %}
-          <li><a href="{% url 'recommendations_create' %}">Add a Recommendation</a></li>
-          <li><a href="{% url 'recommendations_index' %}">View All Recommendations</a></li>
-          <li><a href="{% url 'progresses_create' %}">Add a Journal</a></li>
-          <li><a href="{% url 'index' %}">View All My Progresses</a></li>
-          <li><a href="{% url 'logout' %}">Log Out</a></li>
+          <li><a href="{% url 'logout' %}" id="available-menu">Log Out</a></li>
           {% else %}
-          <li><a href="{% url 'signup' %}">Sign Up</a></li>
-          <li><a href="{% url 'login' %}">Log In</a></li>
+          <li><a href="{% url 'signup' %}" id="available-menu">Sign Up</a></li>
+          <li><a href="{% url 'login' %}" id="available-menu">Log In</a></li>
+          {% endif %}
+        </ul>
+      </div>
+      {% if user.is_authenticated %}
+      <div class="nav-content" style="background-color:#063F0C">
+        <ul class="tabs tabs-transparent" id="bottom-tabs">
+          <li id="authenticated-menu"><a href="{% url 'recommendations_create' %}" style="font-size:20px;">Add a Recommendation</a></li>
+          <li id="authenticated-menu"><a href="{% url 'recommendations_index' %}" style="font-size:20px;">View All Recommendations</a></li>
+          <li id="authenticated-menu"><a href="{% url 'progresses_create' %}" style="font-size:20px;">Add a Journal</a></li>
+          <li id="authenticated-menu"><a href="{% url 'index' %}" style="font-size:20px;">View All My Progresses</a></li>
           {% endif %}
         </ul>
       </div>
     </nav>
   </header>
-  <main class="container">
+  <main class="container ">
     {% block content %}
     {% endblock %}
   </main>
-  <footer class="page-footer">
-    <div class="right">All Rights Reserved, &copy; 2023 PRSS &nbsp;</div>
+  <footer class="page-footer teal darken-4">
+    <div class="right teal darken-4">All Rights Reserved, &copy; 2023 PRSS &nbsp;</div>
   </footer>
 </body>
 </html>

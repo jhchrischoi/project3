@@ -27,6 +27,9 @@ class Progress (models.Model):
 
     def get_absolute_url(self):
         return reverse('detail', kwargs={'progress_id': self.id})
+    
+    # class Meta:
+    #     ordering = ['date']
 
 class Checklist(models.Model):
     school = models.CharField(max_length=100)
