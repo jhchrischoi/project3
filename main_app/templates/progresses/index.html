@@ -1,18 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Dates</h1>
+<div id="detail-title" style="padding-top:25px; padding-bottom:25px; color:#063F0C;">
+  <h1>My Progress</h1>
+</div>
 
 {% for progress in progresses %}
   <div class="card">
     <a href="{% url 'detail' progress.id %}">
-    <div class="card-content">
+    <div class="card-content" style="color:#000000;">
       <span class="card-title">{{ progress.training_date }}</span>
       <p>Coach's advice {{ progress.advice }}</p>
       <p>Goal for today {{ progress.goal }}</p>
       <p>Exercises {{ progress.exercise }}</p>
     </div>
-  </a>
+    </a>
+    <div class="card-action">
+      <a href="{% url 'progresses_update' progress.id %}">Edit</a>
+      <a href="{% url 'progresses_delete' progress.id %}">Delete</a>
+  </div>
   </div>
 {% endfor %}
 

@@ -13,19 +13,19 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="navbar-fixed">
+  <header class="navbar">
     <nav class="nav-extended">
       <div class="nav-wrapper" id="top-nav">
         <ul>
           <li><a href="/" id="brand-logo">&nbsp;&nbsp;<img src="{% static 'images/Logo.png' %}" alt="Image" class="logo-img-signup"></a></li>
         </ul>
         <ul class="right">
-          <li><a href="{% url 'about' %}" id="available-menu">About</a></li>
+          <li><a href="{% url 'about' %}" id="available-menu" style="font-size:20px;">About</a></li>
           {% if user.is_authenticated %}
-          <li><a href="{% url 'logout' %}" id="available-menu">Log Out</a></li>
+          <li><a href="{% url 'logout' %}" id="available-menu" style="font-size:20px;">Log Out</a></li>
           {% else %}
-          <li><a href="{% url 'signup' %}" id="available-menu">Sign Up</a></li>
-          <li><a href="{% url 'login' %}" id="available-menu">Log In</a></li>
+          <li><a href="{% url 'signup' %}" id="available-menu" style="font-size:20px;">Sign Up</a></li>
+          <li><a href="{% url 'login' %}" id="available-menu" style="font-size:20px;">Log In</a></li>
           {% endif %}
         </ul>
       </div>
