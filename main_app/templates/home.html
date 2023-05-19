@@ -18,27 +18,27 @@
     </div>
     <div id="learn-more" style="width: 50%; height: 100px; float: left">
       <h5>What is Roadmap</h5>
-      <a  href="{% url 'about' %}" class="waves-effect waves-light btn" style="background-color:#ffffff; color:#063F0C; border-radius:28px" id="button">LEARN MORE</a>
+      <a class="waves-effect waves-light btn" style="background-color:#ffffff; color:#063F0C; border-radius:28px" id="button">LEARN MORE</a>
     </div>
     <div id="log-in" style="margin-left: 65%; height: 100px">
-      <h5>Need to create an account?</h5>
-      <a href="{% url 'signup' %}" class="waves-effect waves-light btn" style="background-color:#ffffff; color:#063F0C; border-radius:28px" id="button">CREATE</a>
+      <h5>Already have an account?</h5>
+      <a href="{% url 'login' %}" class="waves-effect waves-light btn" style="background-color:#ffffff; color:#063F0C; border-radius:28px" id="button">LOG IN</a>
     </div>
   </div>
 
   <div id="right-side" style="margin-left: 65%; height: 100px">
     <div id="create-an-account">
-      <h3>LOG IN</h3>  
-  <form method="POST" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="hidden" name="next" value="{{ next }}">
-    <button type="submit" class="btn" style="background-color:#063F0C; color:#ffffff; border-radius:28px; margin-top:50px; margin-left:40%">Log In</button>
-  </form>
+      <h4>CREATE AN ACCOUNT</h4>
+      <p class="red-text">{{ error_message }}</p>
+      <form method="POST" action="{% url 'signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="caa-sign-up">
+        <input type="submit" class="btn" value="Sign Up" style="background-color:#063F0C; color:#ffffff; border-radius:28px; margin-top:50px; margin-left:40%">
+        </div>
+      </form>
     </div>
   </div>
 </div>
 </body>
 </html>
-
-
