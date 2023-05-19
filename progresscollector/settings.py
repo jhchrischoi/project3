@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'progresscollector.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 import dj_database_url
 DATABASES = {
-    'default':dj_database_url.config(os.environ.get('HEROKU_DB_URL'))
+    'default':dj_database_url.config(os.environ.get('DATABASE_URL'))
     
 }
 
