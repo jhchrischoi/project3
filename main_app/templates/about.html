@@ -17,7 +17,7 @@
     <nav class="nav-extended">
       <div class="nav-wrapper" id="top-nav">
         <ul>
-          <li><a href="/" id="brand-logo">&nbsp;&nbsp;<img src="{% static 'images/Logo.png' %}" alt="Image" class="logo-img-signup"></a></li>
+          <li><a href="{% url 'index' %}" id="brand-logo">&nbsp;&nbsp;<img src="{% static 'images/Logo.png' %}" alt="Image" class="logo-img-signup"></a></li>
         </ul>
         <ul class="right">
           <li><a href="{% url 'about' %}" id="available-menu" style="font-size:20px;">ABOUT</a></li>
