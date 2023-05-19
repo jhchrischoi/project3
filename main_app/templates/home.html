@@ -21,22 +21,8 @@
       <a class="waves-effect waves-light btn" style="background-color:#ffffff; color:#063F0C; border-radius:28px" id="button">LEARN MORE</a>
     </div>
     <div id="log-in" style="margin-left: 65%; height: 100px">
-      <h5>Already have an account?</h5>
+      <h5>Account Log In</h5>
       <a href="{% url 'login' %}" class="waves-effect waves-light btn" style="background-color:#ffffff; color:#063F0C; border-radius:28px" id="button">LOG IN</a>
-    </div>
-  </div>
-
-  <div id="right-side" style="margin-left: 65%; height: 100px">
-    <div id="create-an-account">
-      <h4>CREATE AN ACCOUNT</h4>
-      <p class="red-text">{{ error_message }}</p>
-      <form method="POST" action="{% url 'signup' %}">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="caa-sign-up">
-        <input type="submit" class="btn" value="Sign Up" style="background-color:#063F0C; color:#ffffff; border-radius:28px; margin-top:50px; margin-left:40%">
-        </div>
-      </form>
     </div>
   </div>
 </div>
