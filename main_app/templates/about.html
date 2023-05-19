@@ -1,10 +1,53 @@
-{% extends 'base.html' %}
-{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Athlete Training Journal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <h1>About Athlete Training Journal</h1>
-<hr>
-<p>Log your work in here</p>
-<footer>All Rights Reserved, &copy; 2023 PRSS</footer>
-
-{% endblock %}
-
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <nav class="nav-extended">
+      <div class="nav-wrapper" id="top-nav">
+        <ul>
+          <li><a href="/" id="brand-logo">&nbsp;&nbsp;<img src="{% static 'images/Logo.png' %}" alt="Image" class="logo-img-signup"></a></li>
+        </ul>
+        <ul class="right">
+          <li><a href="{% url 'about' %}" id="available-menu" style="font-size:20px;">ABOUT</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}" id="available-menu" style="font-size:20px;">LOG OUT</a></li>
+          {% else %}
+          <li><a href="{% url 'signup' %}" id="available-menu" style="font-size:20px;">SIGN UP</a></li>
+          <li><a href="{% url 'login' %}" id="available-menu" style="font-size:20px;">LOG IN</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+    <div id="about-background" style="background-image: linear-gradient(to bottom right, #ffffff, #063F0C); height:500px;">
+        {% comment %} <img src="{% static 'images/background1.png' %}" alt="Image" class="background-img"> {% endcomment %}
+        <div><h1>Roadmap</h1>
+        <h5>Where coaches, parents, and student athletes interact</h5></div>
+    
+    <div id="about-content">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero repudiandae ea incidunt eveniet, corrupti at officiis et quia voluptatum, laborum accusantium laboriosam illo ut cupiditate, dolor aspernatur asperiores a ducimus.</p>
+    </div>
+    </div>
+    <Br>
+        
+    </header>
+    <main class="container ">
+      {% block content %}
+      {% endblock %}
+    </main>
+    <footer class="page-footer teal darken-4">
+      <div class="right teal darken-4">All Rights Reserved, &copy; 2023 Jhchrischoi &nbsp;</div>
+    </footer>
+  </body>
+  </html>
