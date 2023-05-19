@@ -34,9 +34,10 @@ Technologies Used:
     7. AWS is in the code (but not used)
     8. (others: HTML, CSS, Materialize)
 
-Next Stpes
+Next Steps
     1. improve CSS
     2. Re-activate photo upload (AWS) function
     3. User experience
+    
 
 
